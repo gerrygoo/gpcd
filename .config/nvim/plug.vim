@@ -32,6 +32,6 @@ call plug#end()
 source $NVIM_CONFIG_PATH/telescope-fzf-native.vim
 
 " !google
-" source $NVIM_CONFIG_PATH/telescope-codesearch.vim
-" source $NVIM_CONFIG_PATH/cider-lsp.vim
+source $NVIM_CONFIG_PATH/telescope-codesearch.vim
+source $NVIM_CONFIG_PATH/cider-lsp.vim
 
