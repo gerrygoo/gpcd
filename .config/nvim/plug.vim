@@ -14,7 +14,7 @@ autocmd VimEnter * if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
   \| PlugInstall --sync | source $MYVIMRC
 \| endif
 
-" plug in the share path
+" install the plugins in the share path
 call plug#begin($NVIM_SHARE_PATH.'/plugged')
 
 source $NVIM_CONFIG_PATH/telescope.vim
@@ -23,6 +23,9 @@ Plug 'neovim/nvim-lspconfig'
 
 " !google
 " internal plugins
+" TODO:
+" - format file/selection
+" - mapping for autocomplete or plugin with window
 Plug 'kyazdani42/nvim-web-devicons'
 Plug 'sso://user/vintharas/telescope-codesearch.nvim'
 
