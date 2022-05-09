@@ -13,10 +13,23 @@ nnoremap <Leader>ls :edit %:p:h<CR>
 " source current file
 nnoremap <Leader>so :so %<CR>
 
+" command, editing
 nnoremap ; :
 nnoremap : ;
 nnoremap <silent> <Leader>w <Esc>:w<CR>
 nnoremap <silent> <Leader>e <Esc>:noa w<CR>
 nnoremap <silent> <Leader>q <Esc>:q<CR>
 
-" nnoremap <Leader>T :tabnew<Space>+term<Space>\|<Space>tabm<Space>0<Cr>
+" terminal
+nnoremap <Leader>T :tabnew<Space>+term<Space>\|<Space>tabmove<Space>0<Cr>
+
+" vim-powered terminal in split window
+nnoremap <Leader>wt :term<cr>
+tmap <Leader>wt <c-w>:term ++close<cr>
+
+" tabs
+nnoremap <leader>tn :tabnew<cr>
+nnoremap <leader>t<leader> :tabnext
+nnoremap <leader>tm :tabmove
+nnoremap <leader>tc :tabclose<cr>
+nnoremap <leader>to :tabonly<cr>

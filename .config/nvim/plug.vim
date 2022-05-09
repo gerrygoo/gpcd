@@ -17,24 +17,20 @@ autocmd VimEnter * if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
 " install the plugins in the share path
 call plug#begin($NVIM_SHARE_PATH.'/plugged')
 
+" file browsing
 source $NVIM_CONFIG_PATH/telescope.vim
 
+" language server
 Plug 'neovim/nvim-lspconfig'
+
+" completion
+source $NVIM_CONFIG_PATH/completion.vim
 
 " !google
 " internal plugins
-" TODO:
-" - format file/selection
 " - mapping for autocomplete or plugin with window
 Plug 'kyazdani42/nvim-web-devicons'
 Plug 'sso://user/vintharas/telescope-codesearch.nvim'
 
 call plug#end()
-
-" lua configs that need the above plugins to exist
-source $NVIM_CONFIG_PATH/telescope-fzf-native.vim
-
-" !google
-source $NVIM_CONFIG_PATH/telescope-codesearch.vim
-source $NVIM_CONFIG_PATH/cider-lsp.vim
 

@@ -1,23 +1,100 @@
+set completeopt=menu,menuone,noselect
+
 lua << EOF
-local nvim_lsp = require('lspconfig')
+-- set up cmp
+-- TODO: separate this config into some files in nvim/lua/init.lua
+local cmp = require('cmp')
+
+cmp.setup({
+  snippet = {
+    -- REQUIRED - must specify a snippet engine
+    expand = function(args)
+      vim.fn["vsnip#anonymous"](args.body)
+    end,
+  },
+  window = {
+    -- completion = cmp.config.window.bordered(),
+    -- documentation = cmp.config.window.bordered(),
+  },
+  mapping = cmp.mapping.preset.insert({
+    ['<C-b>'] = cmp.mapping.scroll_docs(-4),
+    ['<C-f>'] = cmp.mapping.scroll_docs(4),
+    ['<C-Space>'] = cmp.mapping.complete(),
+    ['<C-e>'] = cmp.mapping.abort(),
+    ['<CR>'] = cmp.mapping.confirm({ select = true }),
+  }),
+  sources = cmp.config.sources({
+    { name = 'nvim_lsp' },
+    { name = 'vsnip' }, -- For vsnip users.
+  }, {
+    { name = 'buffer' },
+  })
+})
+
+local capabilities = vim.lsp.protocol.make_client_capabilities()
+capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
+-- Use buffer source for `/` (if you enabled `native_menu`, this won't work anymore).
+cmp.setup.cmdline('/', {
+  mapping = cmp.mapping.preset.cmdline(),
+  sources = {
+    { name = 'buffer' }
+  }
+})
+
+-- Use cmdline & path source for ':' (if you enabled `native_menu`, this won't work anymore).
+cmp.setup.cmdline(':', {
+  mapping = cmp.mapping.preset.cmdline(),
+  sources = cmp.config.sources({
+    { name = 'path' }
+  }, {
+    { name = 'cmdline' }
+  })
+})
+
+local lspconfig = require('lspconfig')
 local configs = require('lspconfig.configs')
+
+if not configs.ciderlsp then
 configs.ciderlsp = {
- default_config = {
-   cmd = {'/google/bin/releases/cider/ciderlsp/ciderlsp', '--tooltag=nvim-lsp' , '--noforward_sync_responses'};
-   filetypes = {
-     'c', 'cpp', 'java', 'proto', 'textproto', 'go', 'python', 'bzl',
-     'typescript',
-     -- NOTE: javascript is not supported, but some features do work because
-     --       of the way typescript support is implemented.
-     'javascript'
-   };
-   root_dir = nvim_lsp.util.root_pattern('BUILD');
-   settings = {};
- }
+  default_config = {
+    cmd = {
+ 					 '/google/bin/releases/cider/ciderlsp/ciderlsp',
+ 	         '--tooltag=nvim-lsp',
+ 					 '--noforward_sync_responses'
+    };
+    filetypes = {
+      'c', 'cpp', 'java', 'proto', 'textproto', 'go', 'python', 'bzl',
+      'typescript',
+      -- NOTE: javascript is not supported, but some features do work because
+      --       of the way typescript support is implemented.
+      'javascript'
+    };
+    root_dir = require('lspconfig').util.root_pattern('BUILD');
+    settings = {};
+  }
 }
+end
+
 
 -- Setup CiderLSP.
-nvim_lsp.ciderlsp.setup{
+function dump(o)
+   if type(o) == 'table' then
+      local s = '{ '
+      for k,v in pairs(o) do
+				 if k ~= 'util' then
+           if type(k) ~= 'number' then k = '"'..k..'"' end
+           s = s .. '['..k..'] = ' .. dump(v) .. ','
+				 end
+      end
+      return s .. '} '
+   else
+      return tostring(o)
+   end
+end
+-- print(dump(require('lspconfig')))
+-- print(dump(require('lspconfig').ciderlsp))
+
+require('lspconfig').ciderlsp.setup { 
   on_attach = function(client, bufnr)
     -- Omni-completion via LSP. See `:help compl-omni`. Use <C-x><C-o> in
     -- insert mode. Or use an external autocompleter (see below) for a
@@ -50,12 +127,14 @@ nvim_lsp.ciderlsp.setup{
 
     vim.api.nvim_command("augroup LSP")
     vim.api.nvim_command("autocmd!")
-    if client.resolved_capabilities.document_highlight then
+    if client.server_capabilities.document_highlight then
       vim.api.nvim_command("autocmd CursorHold  <buffer> lua vim.lsp.buf.document_highlight()")
       vim.api.nvim_command("autocmd CursorHoldI <buffer> lua vim.lsp.buf.document_highlight()")
       vim.api.nvim_command("autocmd CursorMoved <buffer> lua vim.lsp.util.buf_clear_references()")
     end
     vim.api.nvim_command("augroup END")
-  end
+  end,
+  capabilities = capabilities
 }
+
 EOF
