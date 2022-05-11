@@ -14,4 +14,3 @@ Plug 'hrsh7th/cmp-cmdline'
 " lsp
 Plug 'hrsh7th/cmp-nvim-lsp'
 Plug 'hrsh7th/cmp-nvim-lsp-document-symbol'
-Plug 'hrsh7th/cmp-nvim-lsp-document-symbol'

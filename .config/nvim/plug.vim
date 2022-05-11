@@ -26,11 +26,5 @@ Plug 'neovim/nvim-lspconfig'
 " completion
 source $NVIM_CONFIG_PATH/completion.vim
 
-" !google
-" internal plugins
-" - mapping for autocomplete or plugin with window
-Plug 'kyazdani42/nvim-web-devicons'
-Plug 'sso://user/vintharas/telescope-codesearch.nvim'
-
 call plug#end()
 

@@ -6,7 +6,7 @@ let &runtimepath .= ','.expand($NVIM_CONFIG_PATH."/autoload")
 let &packpath = &runtimepath
 
 " !google
-source $NVIM_CONFIG_PATH/google.vim
+" source $NVIM_CONFIG_PATH/google.vim
 
 " personal preferences
 source $NVIM_CONFIG_PATH/mappings.vim
@@ -16,10 +16,6 @@ source $NVIM_CONFIG_PATH/editor.vim
 source $NVIM_CONFIG_PATH/plug.vim
 
 " lua configs that must run after Plug:
-" !google
-source $NVIM_CONFIG_PATH/telescope-codesearch.vim
-source $NVIM_CONFIG_PATH/cider-lsp.vim
-
 " telescope finder
 source $NVIM_CONFIG_PATH/telescope-fzf-native.vim
 

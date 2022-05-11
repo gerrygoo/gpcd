@@ -4,7 +4,7 @@ ZSH_ETC="$HOME/.config/zsh"
 # instant prompt should stay close to the top
 source "$ZSH_ETC/instant-prompt.zsh"
 
-# gpcd
+# dotfiles version control
 source "$ZSH_ETC/gpcd.zsh"
 
 # env variables
@@ -14,9 +14,9 @@ source "$ZSH_ETC/oh-my-zsh.zsh"
 # nvim
 source "$ZSH_ETC/nvim.zsh"
 
-# !google
-source "$ZSH_ETC/google.zsh"
-export GUNIT_COLOR="yes"
+" !google
+" source "$ZSH_ETC/google.zsh"
+" export GUNIT_COLOR="yes"
 
 # scripts that must go last
 source "$ZSH_ETC/pl10k.zsh"
