@@ -20,9 +20,6 @@ source $NVIM_CONFIG_PATH/plug.vim
 source $NVIM_CONFIG_PATH/telescope-codesearch.vim
 source $NVIM_CONFIG_PATH/cider-lsp.vim
 
-" completion
-" source $NVIM_CONFIG_PATH/nvim-cmp.vim
-
 " telescope finder
 source $NVIM_CONFIG_PATH/telescope-fzf-native.vim
 
