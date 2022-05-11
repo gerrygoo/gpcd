@@ -22,8 +22,6 @@ nnoremap <silent> <Leader>q <Esc>:q<CR>
 
 " terminal
 nnoremap <Leader>T :tabnew<Space>+term<Space>\|<Space>tabmove<Space>0<Cr>
-
-" vim-powered terminal in split window
 nnoremap <Leader>wt :term<cr>
 tmap <Leader>wt <c-w>:term ++close<cr>
 

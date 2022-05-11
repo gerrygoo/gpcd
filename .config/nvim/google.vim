@@ -1,5 +1,9 @@
 source /usr/share/vim/google/glug/bootstrap.vim
 
+source $NVIM_CONFIG_PATH/yank.vim
+
+vnoremap <leader>cf :FormatLines<cr>
+
 Glug google
 Glug codefmt plugin[mappings] gofmt_executable="goimports"
 Glug codefmt-google
@@ -17,9 +21,5 @@ else
   command W w | F | e | redraw! 
   command WA wa | F | windo e | redraw!
 endif
-
-" TODO: get cool snippets
-" inoremap <Leader>a <C-x><C-o>
-
 
 " TODO: read my google vimwiki
