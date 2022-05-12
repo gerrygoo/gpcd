@@ -1,6 +1,12 @@
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 
+[ ! -d "$HOME/.oh-my-zsh" ] && {
+  echo "oh-my-zsh is not installed, might want to run"
+  echo 'sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended --keep-zshrc'
+	return 1
+}
+
 # HYPHEN_INSENSITIVE="true"
 
 # DISABLE_AUTO_UPDATE="true"
@@ -19,4 +25,6 @@ export ZSH="$HOME/.oh-my-zsh"
 
 # zsh plugins
 plugins=(zsh-autosuggestions zsh-syntax-highlighting)
+
 source $ZSH/oh-my-zsh.sh
+
