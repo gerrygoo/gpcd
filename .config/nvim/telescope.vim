@@ -11,6 +11,6 @@ nnoremap <leader>fh <cmd>Telescope help_tags<cr>
 
 " telescope into lsp
 nnoremap gr <cmd>Telescope lsp_references<cr>
-nnoremap gW <cmd>Telescope lsp_workspace_symbol<cr>
-nnoremap g0 <cmd>Telescope lsp_document_symbol<cr>
+nnoremap gW <cmd>Telescope lsp_workspace_symbols<cr>
+nnoremap g0 <cmd>Telescope lsp_document_symbols<cr>
 
