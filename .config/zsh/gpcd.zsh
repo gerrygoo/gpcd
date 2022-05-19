@@ -1,8 +1,5 @@
-\# avoid recursion issues
-echo ".config" >> .gitignore
-
 # define the alias
-alias gpcd='git --git-dir=$HOME/.gpcd/ --work-tree=$HOME'
+alias gpcd='git --git-dir=$HOME/.config/ --work-tree=$HOME'
 
 # initialize the repo
 gpcd_clone() {
