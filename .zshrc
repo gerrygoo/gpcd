@@ -14,10 +14,6 @@ source "$ZSH_ETC/oh-my-zsh.zsh"
 # nvim
 source "$ZSH_ETC/nvim.zsh"
 
-" !google
-" source "$ZSH_ETC/google.zsh"
-" export GUNIT_COLOR="yes"
-
 # scripts that must go last
 source "$ZSH_ETC/pl10k.zsh"
 source "$ZSH_ETC/fzf.zsh"
