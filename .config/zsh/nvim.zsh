@@ -8,7 +8,7 @@ fi
 export NVIM_CONFIG_PATH="$HOME/.config/nvim"
 export NVIM_SHARE_PATH="$HOME/.local/share/nvim"
 
-export VISUAL="/usr/local/bin/nvim"
+export VISUAL="/opt/homebrew/bin/nvim"
 alias vi="$VISUAL"
 alias vim="$VISUAL"
 alias vt="vi +term"

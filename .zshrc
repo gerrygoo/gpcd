@@ -9,6 +9,8 @@ source "$ZSH_ETC/gpcd.zsh"
 
 # env variables
 export PATH="$HOME/bin:$PATH"
+## homebrew for mac
+export PATH="$PATH:/opt/homebrew/bin"
 source "$ZSH_ETC/oh-my-zsh.zsh"
 
 # nvim

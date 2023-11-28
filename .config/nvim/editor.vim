@@ -9,6 +9,7 @@ set nu rnu nuw=2
 
 " colorscheme
 colo slate
+hi Normal guibg=NONE ctermbg=NONE
 
 " enable scroll and clicking around with the mouse
 set mouse=a
@@ -22,3 +23,6 @@ set tabstop=2
 
 " don't resize buff splits automatically
 set noequalalways
+
+" fix brace matching highlihgt
+hi MatchParen ctermbg=NONE ctermfg=lightblue

@@ -27,7 +27,7 @@ tmap <Leader>wt <c-w>:term ++close<cr>
 
 " tabs
 nnoremap <leader>tn :tabnew<cr>
-nnoremap <leader>t<leader> :tabnext
+nnoremap <leader>t<leader> :tabnext<cr>
 nnoremap <leader>tm :tabmove
 nnoremap <leader>tc :tabclose<cr>
 nnoremap <leader>to :tabonly<cr>
